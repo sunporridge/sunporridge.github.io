@@ -1,0 +1,87 @@
+
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我爱你</title>
+
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  
+  <style type="text/css">
+  
+  #contentToWrite {
+    font-size: 18px;
+    position: absolute;
+    left: 50%;
+    top: 48%;
+    transform: translate(-48%,0);
+    /* margin-left:-80px;*/
+}
+  #contentToWrite1 {
+    font-size: 9px;
+    position: absolute;
+    left: 50%;
+    top: 93%;
+    transform: translate(-48%,0);
+    color: #FFFFFF;
+    /* margin-left:-80px;*/
+}
+  audio {
+				display: none;
+			}
+  #div_container { /*最外层div，用于居中兼容PC和移动*/
+            width: 500px;
+            margin: 0px auto; 
+            position: relative;
+            /*background-color: #FAFAFA;*/
+            font-size: 1em;
+        }
+   </style>
+  <body>
+      
+       <audio id="music" autoplay="autoplay" controls="controls" loop="loop" preload="auto" src="http://cyy.x00c.com/view.php/b7433f6f2b22f847e8e4ac6341ae3365.mp3">
+		</audio>
+
+      <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id: "Jt3MqMFYRMO3ihcj",ck: "Jt3MqMFYRMO3ihcj"})</script>
+      <script>
+         window.onload = function(){
+				setInterval("toggleSound()",1);
+			}
+			function toggleSound() {
+				var music = document.getElementById("music");//获取ID  
+				if (music.paused) { //判读是否播放  
+					music.paused=false;
+					music.play(); //没有就播放 
+				}    
+			}
+			//--创建页面监听，等待微信端页面加载完毕 触发音频播放
+			document.addEventListener('DOMContentLoaded', function () {
+				function audioAutoPlay() {
+					var audio = document.getElementById('music');
+						audio.play();
+					document.addEventListener("WeixinJSBridgeReady", function () {
+						audio.play();
+					}, false);
+				}
+				audioAutoPlay();
+			});
+			//--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
+			document.addEventListener('touchstart', function () {
+				function audioAutoPlay() {
+					var audio = document.getElementById('music');
+						audio.play();
+				}
+				audioAutoPlay();
+			});
+
+          
+      </script>
+    <script src="js/three.min.js"></script>
+    <script src="js/MeshSurfaceSampler.js"></script>
+    <script src="js/TrackballControls.js"></script>
+    <script src="js/simplex-noise.js"></script>
+    <script src="js/OBJLoader.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/script.js"></script>
+</body></html>
