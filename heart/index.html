@@ -39,8 +39,22 @@
    </style>
   <body>
       
-       <audio id="music" autoplay="autoplay" controls="controls" loop="loop" preload="auto" src="http://cyy.x00c.com/view.php/b7433f6f2b22f847e8e4ac6341ae3365.mp3">
-		</audio>
+        <audio id="music" autoplay="autoplay" 
+	loop="loop" preload="auto" 
+	src="http://cyy.x00c.com/view.php/b7433f6f2b22f847e8e4ac6341ae3365.mp3">
+</audio>
+
+<script>
+    //用户跟界面有交互才能自动播放，不然浏览器默认禁止的
+    function autoplay() {
+        let music=document.getElementById("music")
+        if (music.paused) { //判读是否播放  
+            music.paused=false;
+            music.play(); //没有就播放 
+        }
+    }
+    setInterval("autoplay()",500);
+</script>
 
       <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
 <script>LA.init({id: "Jt3MqMFYRMO3ihcj",ck: "Jt3MqMFYRMO3ihcj"})</script>
